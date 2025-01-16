@@ -2,7 +2,8 @@
 
 ClapTrap::ClapTrap()
 {
-	std::cout << "ASDF" << std::endl;
+	this->name = "UNNAMED";
+	std::cout << "ClapTrap Created" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name)
@@ -23,9 +24,6 @@ ClapTrap::ClapTrap(ClapTrap& rhs)
 {
 	std::cout << "ClapTrap " << rhs.name << " has Created (Copy Construtor)" << std::endl;
 	*this = rhs;
-	this->hitPoint = 10;
-	this->energyPoint = 10;
-	this->attackDamage = 0;
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &rhs)
