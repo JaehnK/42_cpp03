@@ -48,11 +48,12 @@ void	ClapTrap::takeDamage(unsigned int amount)
 {
 	std::cout << "ClapTrap[" << name << "]: Taken  "<< amount << " Damage" <<std::endl;
 	hitPoint -= amount;
+	energyPoint--;
 }
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
-	
 	std::cout << "ClapTrap[" << name << "]: Repaired "<< amount << "." <<std::endl;
 	hitPoint += amount;
+	energyPoint--;
 }
