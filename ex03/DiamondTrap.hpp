@@ -5,10 +5,6 @@ class DiamondTrap: public FragTrap, public ScavTrap
 {
 	private:
 		std::string	name;
-		std::string	clap_name;
-		int			hitPoint;
-		int			energyPoint;
-		int			attackDamage;
 	
 	public:
 		DiamondTrap();

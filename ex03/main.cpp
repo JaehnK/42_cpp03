@@ -2,7 +2,7 @@
 
 int	main(void)
 {
-	DiamondTrap a;
+	DiamondTrap a("HELLO");
 	a.whoAmI();
 
 	return 0;

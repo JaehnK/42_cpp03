@@ -1,5 +1,5 @@
 C++ = c++
-CPP_FLAGS = -Wall -Werror -Wextra -std=c++98
+CPP_FLAGS = -Wall -Werror -Wextra -std=c++98 -Wshadow
 
 SRCS =	main.cpp \
 		ClapTrap.cpp \
@@ -11,7 +11,6 @@ HEADR = ClapTrap.hpp \
 		FragTrap.hpp \
 		ScavTrap.hpp \
 		DiamondTrap.hpp
-
 
 OBJS = $(SRCS:.cpp=.o)
 

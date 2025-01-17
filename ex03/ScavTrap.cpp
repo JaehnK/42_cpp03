@@ -48,6 +48,7 @@ ScavTrap& ScavTrap::operator=(const ScavTrap &rhs)
 void	ScavTrap::attack(const std::string &target)
 {
 	std::cout << "ScavTrap[" << name << "]: Attack " << target << "." << std::endl;
+	energyPoint--;
 }
 
 void	ScavTrap::guardGate()

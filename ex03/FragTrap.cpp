@@ -49,6 +49,7 @@ FragTrap& FragTrap::operator=(const FragTrap& rhs)
 void	FragTrap::attack(const std::string &target)
 {
 	std::cout << "FragTrap[" << name << "]: Attack " << target << "." <<std::endl;
+	energyPoint--;
 }
 
 void	FragTrap::highFivesGuys(void)
