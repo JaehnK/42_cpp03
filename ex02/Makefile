@@ -11,7 +11,7 @@ HEADR = ClapTrap.hpp \
 
 OBJS = $(SRCS:.cpp=.o)
 
-NAME = ex01
+NAME = ex02
 
 all: $(NAME)
 

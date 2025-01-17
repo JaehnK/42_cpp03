@@ -3,13 +3,12 @@
 ClapTrap::ClapTrap()
 {
 	this->name = "UNNAMED";
-	std::cout << "ClapTrap Created" << std::endl;
+	std::cout << "ClapTrap[" << name << "]: Created" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name)
 {
 	std::cout << "ClapTrap[" << name << "]: Created" << std::endl;
-
 	this->name = name;
 	this->hitPoint = 10;
 	this->energyPoint = 10;

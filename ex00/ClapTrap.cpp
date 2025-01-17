@@ -2,7 +2,8 @@
 
 ClapTrap::ClapTrap()
 {
-	std::cout << "ASDF" << std::endl;
+	name = "Unnamed";
+	std::cout << "ClapTrap " << name << " has Created" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name)

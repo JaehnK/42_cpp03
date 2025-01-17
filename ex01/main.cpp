@@ -22,6 +22,7 @@ int	main(void)
 		ScavTrap st;
 		st.attack("Target");
 		st.guardGate();
+		ScavTrap st2(st);
 		// st.printAttr();
 	}
 	PrintSep();

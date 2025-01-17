@@ -2,41 +2,57 @@
 
 ScavTrap::ScavTrap(): ClapTrap()
 {
-	std::cout << "ScavTrap Also Created" << std::endl;
+	name = "UNNAMED";
 	attackDamage = 20;
 	energyPoint = 50;
 	hitPoint = 100;
-	this->guard = false;
+	std::cout << "ScavTrap[" << name << "]: Created" << std::endl;
+}
+
+ScavTrap::ScavTrap(std::string name): ClapTrap(name)
+{
+	this->name = name;
+	attackDamage = 20;
+	energyPoint = 50;
+	hitPoint = 100;
+	std::cout << "ScavTrap[" << name << "]: Created" << std::endl;
 }
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "ScavTrap already Died." << std::endl;
+	std::cout << "ScavTrap[" << name << "]: Died" << std::endl;
 }
 
-ScavTrap::ScavTrap(ScavTrap& rhs)
+ScavTrap::ScavTrap(const ScavTrap& rhs): ClapTrap(rhs)
 {
-	*this = rhs;
+	std::cout << "ScavTrap[" << rhs.name << "]: Created (Copy Construtor)" << std::endl;
+	this->name = rhs.name;
+	this->attackDamage = rhs.attackDamage;
+	this->energyPoint = rhs.energyPoint;
+	this->hitPoint = rhs.hitPoint;
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap &rhs)
 {
 	if (this != &rhs)
 	{
-		this->guard = rhs.guard;
+		std::cout << "ScavTrap[" << rhs.name << "]: Copy Assignment Operator Called" << std::endl;	
+		this->name = rhs.name;
+		this->attackDamage = rhs.attackDamage;
+		this->energyPoint = rhs.energyPoint;
+		this->hitPoint = rhs.hitPoint;
 	}
 	return (*this);
 }
 
 void	ScavTrap::attack(const std::string &target)
 {
-	std::cout << "Scav Attack " << target << std::endl;
+	std::cout << "ScavTrap[" << name << "]: Attack " << target << "." << std::endl;
 }
 
 void	ScavTrap::guardGate()
 {
-	guard = true;
-	std::cout << "Gate Keeper Mode Activated" << std::endl;
+	std::cout << "Securing the perimeter!" << std::endl;
 }
 
 void	ScavTrap::printAttr()
@@ -45,5 +61,4 @@ void	ScavTrap::printAttr()
 	std::cout << "Attack Damage: " << attackDamage << std::endl;
 	std::cout << "Energy Points: " << energyPoint << std::endl;
 	std::cout << "Hit Points: " << hitPoint << std::endl;
-	std::cout << "Guard: " << guard << std::endl;
 }

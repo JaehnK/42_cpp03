@@ -3,12 +3,12 @@
 ClapTrap::ClapTrap()
 {
 	this->name = "UNNAMED";
-	std::cout << "ClapTrap Created" << std::endl;
+	std::cout << "ClapTrap[" << name << "]: Created" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name)
 {
-	std::cout << "ClapTrap " << name << " has Created" << std::endl;
+	std::cout << "ClapTrap[" << name << "]: Created" << std::endl;
 	this->name = name;
 	this->hitPoint = 10;
 	this->energyPoint = 10;
@@ -17,20 +17,23 @@ ClapTrap::ClapTrap(std::string name)
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "ClapTrap " << name << " has Died" << std::endl;
+	std::cout << "ClapTrap[" << name << "]: Died" << std::endl;
 } 
 
-ClapTrap::ClapTrap(ClapTrap& rhs)
+ClapTrap::ClapTrap(const ClapTrap& rhs)
 {
-	std::cout << "ClapTrap " << rhs.name << " has Created (Copy Construtor)" << std::endl;
-	*this = rhs;
+	this->name = rhs.name;
+    this->hitPoint = rhs.hitPoint;
+    this->energyPoint = rhs.energyPoint;
+    this->attackDamage = rhs.attackDamage;
+	std::cout << "ClapTrap[" << rhs.name << "]: Created (Copy Construtor)" << std::endl;
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &rhs)
 {
 	if (this != &rhs)
 	{
-		std::cout << rhs.name << " Copy Assignment Operator Called" << std::endl;
+		std::cout << "ClapTrap[" << rhs.name << "]: Copy Assignment Operator Called" << std::endl;	
 		this->name = rhs.name;
 		this->hitPoint = rhs.hitPoint;
 		this->energyPoint = rhs.energyPoint ;
@@ -41,27 +44,17 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &rhs)
 
 void	ClapTrap::attack(const std::string &target)
 {
-	std::stringstream ss;
-
-	ss << name << " attacks " << target << ", causing " << attackDamage <<" points of damage!";
-	std::cout << ss.str() << std::endl;
+	std::cout << "ClapTrap[" << name << "]: Attack " << target << "." << std::endl;
 }
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
-	std::stringstream ss;
-
-	ss << name << " has taken" << amount << " points of damage!";
-	std::cout << ss.str() << std::endl;
+	std::cout << "ClapTrap[" << name << "]: Taken "<< amount << " Damage" << std::endl;
 	hitPoint -= amount;
-	std::cout << name << "'s hitEnergy : " << hitPoint << std::endl;
 }
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
-	std::stringstream ss;
-
-	ss << name << " is repaired" << amount << "point!";
+	std::cout << "ClapTrap[" << name << "]: Repaired "<< amount << "." << std::endl;
 	hitPoint += amount;
-	std::cout << name << "'s hitEnergy : " << hitPoint << std::endl;
 }
