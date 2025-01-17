@@ -2,8 +2,8 @@
 
 ScavTrap::ScavTrap(): ClapTrap()
 {
-	name = "UNNAMED";
-	attackDamage = 20;
+	if (attackDamage == 10)
+		attackDamage = 20;
 	energyPoint = 50;
 	hitPoint = 100;
 	std::cout << "ScavTrap[" << name << "]: Created" << std::endl;
@@ -12,7 +12,8 @@ ScavTrap::ScavTrap(): ClapTrap()
 ScavTrap::ScavTrap(std::string name): ClapTrap(name)
 {
 	this->name = name;
-	attackDamage = 20;
+	if (attackDamage == 10)
+		attackDamage = 20;
 	energyPoint = 50;
 	hitPoint = 100;
 	std::cout << "ScavTrap[" << name << "]: Created" << std::endl;
@@ -59,7 +60,7 @@ void	ScavTrap::guardGate()
 void	ScavTrap::printAttr()
 {
 	std::cout << "Name: " << name << std::endl;
-	std::cout << "Attack Damage: " << attackDamage << std::endl;
-	std::cout << "Energy Points: " << energyPoint << std::endl;
 	std::cout << "Hit Points: " << hitPoint << std::endl;
+	std::cout << "Energy Points: " << energyPoint << std::endl;
+	std::cout << "Attack Damage: " << attackDamage << std::endl;	
 }

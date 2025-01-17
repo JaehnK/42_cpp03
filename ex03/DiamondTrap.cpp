@@ -1,8 +1,8 @@
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap(): ClapTrap(), FragTrap(), ScavTrap()
+DiamondTrap::DiamondTrap(): ClapTrap("Unnamed_clap_trap_"), FragTrap(), ScavTrap()
 {
-	name = FragTrap::name;
+	name = "Unnamed";
 	hitPoint = FragTrap::hitPoint;
 	energyPoint = ScavTrap::energyPoint;
 	attackDamage = FragTrap::attackDamage;
@@ -11,8 +11,8 @@ DiamondTrap::DiamondTrap(): ClapTrap(), FragTrap(), ScavTrap()
 
 DiamondTrap::DiamondTrap(std::string name): 
 	ClapTrap(name + "_clap_name"),
-	FragTrap(name), 
-	ScavTrap(name)
+	FragTrap(),
+	ScavTrap()
 {
 	this->name = name;
 	hitPoint = FragTrap::hitPoint;
@@ -27,13 +27,13 @@ DiamondTrap::~DiamondTrap()
 
 }
 
-DiamondTrap::DiamondTrap(const DiamondTrap& rhs)
+DiamondTrap::DiamondTrap(const DiamondTrap& rhs): 
+	ClapTrap(rhs),
+	FragTrap(rhs),
+	ScavTrap(rhs)
 {
 	std::cout << "DiamondTrap[" << rhs.name << "]: Created (Copy Construtor)" << std::endl;
-	this->name = rhs.name;
-	this->attackDamage = rhs.attackDamage;
-	this->energyPoint = rhs.energyPoint;
-	this->hitPoint = rhs.hitPoint;
+	*this = rhs;
 }
 
 DiamondTrap& DiamondTrap::operator=(const DiamondTrap &rhs)

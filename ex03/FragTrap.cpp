@@ -3,14 +3,13 @@
 
 FragTrap::FragTrap(): ClapTrap()
 {	
-	name = "UNNAMED";
 	attackDamage = 30;
 	energyPoint = 100;
 	hitPoint = 100;
 	std::cout << "FragTrap[" << name << "]: Created" << std::endl;
 }
 
-FragTrap::FragTrap(std::string name): ClapTrap()
+FragTrap::FragTrap(std::string name): ClapTrap(name)
 {
 	this->name = name;
 	attackDamage = 30;
@@ -24,7 +23,7 @@ FragTrap::~FragTrap()
 	std::cout << "FragTrap[" << name << "]: Died" << std::endl;
 }
 
-FragTrap::FragTrap(FragTrap& rhs): ClapTrap(rhs)
+FragTrap::FragTrap(const FragTrap& rhs): ClapTrap(rhs)
 {
 	std::cout << "FragTrap[" << rhs.name << "]: Created (Copy Construtor)" << std::endl;
 	this->name = rhs.name;
